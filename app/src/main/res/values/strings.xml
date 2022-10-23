@@ -11,4 +11,6 @@
     <string name="instructionf">"We have some instruction to help you in our app "</string>
     <string name="instruction2">"Click next to show your shoe list "</string>
     <string name="next">Next</string>
+    <string name="AddNew">Add New Shoe</string>
+    <string name="someInstructions">We have some instructions to help you</string>
 </resources>

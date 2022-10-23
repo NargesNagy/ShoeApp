@@ -37,7 +37,9 @@ class LoginFragment : Fragment() {
 
         binding.btnLogin.setOnClickListener {
 
-             if (binding.etPassword.text.isNullOrEmpty()){
+            if (binding.etPassword.text.isNullOrEmpty() &&  binding.etEmail.text.isNullOrEmpty() == true ){
+                Toast.makeText(requireContext(), "please enter data", Toast.LENGTH_SHORT).show()
+            } else if (binding.etPassword.text.isNullOrEmpty()){
                 Toast.makeText(requireContext(), "please enter password", Toast.LENGTH_SHORT).show()
             } else if (binding.etEmail.text?.contains('@') == false || binding.etEmail.text.isNullOrEmpty() == true){
                 Toast.makeText(requireContext(), "please enter valid mail", Toast.LENGTH_SHORT).show()
@@ -50,7 +52,9 @@ class LoginFragment : Fragment() {
         }
         binding.btnSignup.setOnClickListener {
 
-            if (binding.etPassword.text.isNullOrEmpty()){
+            if (binding.etPassword.text.isNullOrEmpty() &&  binding.etEmail.text.isNullOrEmpty() == true ){
+                Toast.makeText(requireContext(), "please enter data", Toast.LENGTH_SHORT).show()
+            } else if (binding.etPassword.text.isNullOrEmpty()){
                 Toast.makeText(requireContext(), "please enter password", Toast.LENGTH_SHORT).show()
             } else if (binding.etEmail.text?.contains('@') == false || binding.etEmail.text.isNullOrEmpty() == true){
                 Toast.makeText(requireContext(), "please enter valid mail", Toast.LENGTH_SHORT).show()
