@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">ShoeApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">login</string>
+    <string name="signUp">SignUp</string>
+    <string name="instructions"><![CDATA[>>]]></string>
+    <string name="instruction">instructions</string>
+    <string name="welcome">"Welcome in our app "</string>
+    <string name="welcomeInstraction">"we have some instruction go to next page to see it "</string>
+    <string name="instructionf">"We have some instruction to help you in our app "</string>
+    <string name="instruction2">"Click next to show your shoe list "</string>
+    <string name="next">Next</string>
 </resources>
