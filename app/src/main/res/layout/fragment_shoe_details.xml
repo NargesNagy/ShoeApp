@@ -3,13 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <data>
+
     <variable
-        name="shoe"
-        type="com.example.shoeapp.models.ShoeModel" />
+        name="vm"
+        type="com.example.shoeapp.viewmodel.ShoeViewModel" />
 </data>
 
     <!-- we use constrainlayout here to avoid nested layouts ,
-   which affected on the performence and GPU ,
+    which affected on the performence and GPU ,
+    and to make our design as we need here ,
    and its recommended from google
   -->
 
@@ -45,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name:"
-            android:text="@={shoe.name}" />
+            android:text="@={vm.newAddedShoe.name}" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -61,7 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Company:"
-            android:text="@={shoe.company}" />
+            android:text="@={vm.newAddedShoe.company}" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -76,8 +78,8 @@
             android:id="@+id/et_size"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Size:"
-            android:inputType="number" />
+            android:text="@{vm.newAddedShoe.size.toString()}"
+            android:inputType="number"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -93,7 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Description:"
-            android:text="@={shoe.description}" />
+            android:text="@={vm.newAddedShoe.description}" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton

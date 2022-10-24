@@ -7,18 +7,26 @@ import com.example.shoeapp.models.ShoeModel
 
 class ShoeViewModel : ViewModel() {
 
-    private val _shoeListLiveData = MutableLiveData<List<ShoeModel>>()
-    val shoeListResult: LiveData<List<ShoeModel>> = _shoeListLiveData
-    private var shoeList = mutableListOf<ShoeModel>()
+    var isShouldValidateFields: MutableLiveData<Boolean> = MutableLiveData(false)
 
-    fun addShoe(newShoe: ShoeModel) {
-        newShoe.let { item ->
-            shoeList.add(item)
-            _shoeListLiveData.value = shoeList
-        }
+    private val _shoeItemLiveData = MutableLiveData<MutableList<ShoeModel>?>(mutableListOf())
+
+    var newAddedShoe = ShoeModel()
+
+    fun addShoe(shoe: ShoeModel) {
+        _shoeItemLiveData.value?.add(shoe)
+        _shoeItemLiveData.value = _shoeItemLiveData.value
     }
 
-    fun validateData(name: String, company: String, size: Int, description: String) {
-
+    fun clearAddingShoeSession() {
+        isShouldValidateFields.value = false
+        newAddedShoe = ShoeModel()
     }
+
+    fun getShoeLiveData(): LiveData<MutableList<ShoeModel>?> {
+        return _shoeItemLiveData
+    }
+
+
+
 }

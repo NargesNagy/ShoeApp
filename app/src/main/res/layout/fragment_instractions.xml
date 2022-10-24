@@ -4,9 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-<!-- we use constrainlayout here to avoid nested layouts ,
-   which affected on the performence and GPU ,
-   and its recommended from google
+<!-- we use constrainlayout here to avoid nested layouts but here we dont have nested ,
+   but to improve the performence and GPU performence ,
+   and its recommended from google to use ConstraintLayout
   -->
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -56,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:padding="8dp"
         android:text="@string/next"
         app:backgroundTint="@color/teal_700"

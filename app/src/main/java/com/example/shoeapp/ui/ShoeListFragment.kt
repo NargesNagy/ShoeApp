@@ -13,6 +13,7 @@ import com.example.shoeapp.R
 import com.example.shoeapp.databinding.FragmentShoeDetailsBinding
 import com.example.shoeapp.databinding.FragmentShoeListBinding
 import com.example.shoeapp.databinding.ItemShoesBinding
+import com.example.shoeapp.models.ShoeModel
 import com.example.shoeapp.viewmodel.ShoeViewModel
 
 
@@ -44,27 +45,30 @@ class ShoeListFragment : Fragment() {
         getAllShoe()
 
         binding.addShoeBtn.setOnClickListener {
+            viewModel.clearAddingShoeSession()
             findNavController().navigate(R.id.shoeDetailsFragment)
         }
     }
 
-    private fun getAllShoe() {
-        viewModel.shoeListResult.observe(viewLifecycleOwner) {
-            it.forEach {
-                val listBinding = ItemShoesBinding.inflate(
-                    LayoutInflater.from(requireContext()),binding.shoesListLayout, false)
-
-                listBinding.apply {
-                    tvName.text = it.name
-                    tvCompany.text = it.company
-                    tvSize.text = it.size.toString()
-                    tvDesc.text = it.description
-                }
-                binding.shoesListLayout.addView(listBinding.root)
+    private fun getAllShoe(){
+        viewModel.getShoeLiveData().observe(viewLifecycleOwner) {
+            it?.forEach { shoe ->
+                binding.shoesListLayout.addView(getViewForShoe(shoe))//.addView(getViewForShoe(shoe))
             }
         }
     }
 
+
+    private fun getViewForShoe(shoe: ShoeModel): View{
+        val itemShoesBinding = ItemShoesBinding.inflate(LayoutInflater.from(requireContext()),null,false)
+        itemShoesBinding.tvName.text = shoe.name
+        itemShoesBinding.tvCompany.text = shoe.company
+        itemShoesBinding.tvSize.text = shoe.size.toString()
+        itemShoesBinding.tvDesc.text = shoe.description
+
+        itemShoesBinding.executePendingBindings()
+        return itemShoesBinding.root
+    }
 
 
     private fun setupMenu() {

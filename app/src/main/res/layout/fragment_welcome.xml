@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
-    <!-- we use constrainlayout here to avoid nested layouts ,
-   which affected on the performence and GPU ,
-   and its recommended from google
-  -->
+    <!-- we use constrainlayout here to avoid nested layouts but here we dont have nested ,
+      but to improve the performence and GPU performence ,
+      and its recommended from google to use ConstraintLayout
+     -->
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
