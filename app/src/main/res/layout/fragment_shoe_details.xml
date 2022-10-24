@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <data>
 
+    <import type="com.example.shoeapp.bindingadapter.BindingAdapter" />
     <variable
         name="vm"
         type="com.example.shoeapp.viewmodel.ShoeViewModel" />
@@ -79,6 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{vm.newAddedShoe.size.toString()}"
+            android:onTextChanged="@{(text,start,before,count) -> vm.newAddedShoe.setSize(text.toString())}"
             android:inputType="number"/>
     </com.google.android.material.textfield.TextInputLayout>
 
