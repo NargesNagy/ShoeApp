@@ -53,7 +53,7 @@ class ShoeListFragment : Fragment() {
     private fun getAllShoe(){
         viewModel.getShoeLiveData().observe(viewLifecycleOwner) {
             it?.forEach { shoe ->
-                binding.shoesListLayout.addView(getViewForShoe(shoe))//.addView(getViewForShoe(shoe))
+                binding.shoesListLayout.addView(getViewForShoe(shoe))
             }
         }
     }
