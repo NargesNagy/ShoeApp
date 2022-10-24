@@ -40,7 +40,6 @@ class ShoeDetailsFragment : Fragment() {
 
             if (binding.etName.text.isNullOrEmpty() || binding.etCopmany.text.isNullOrEmpty() || binding.etSize.text.isNullOrEmpty() || binding.etDesc.text.isNullOrEmpty() ) {
                 Toast.makeText(requireContext(), "please enter valid data", Toast.LENGTH_SHORT).show()
-                Toast.makeText(requireContext(), "${viewModel.newAddedShoe.size}", Toast.LENGTH_SHORT).show()
             } else {
                 viewModel.newAddedShoe.apply {
                     viewModel.addShoe(shoe = this)
